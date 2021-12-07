@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      <title>
+          Catalogo de Tiendas
+      </title>
+  </head>
+  <body>
+      <center>
+      <form action="{{ url_for('datos')}}" method="get">
+
+        <div class="section-header" style="background-image: url(https://fondosmil.com/fondo/86941.png);">
+            <div class="section-header-inner">
+                <h1 class="section-header-title">Catalogo de Tiendas</h1>
+                <p class="section-header-text">Encuentra tu tienda favorita cerca de ti.</p>
+            </div>
+        </div>
+          <br><br>
+          <div class="dropdown show">
+            <label for="state" class="tbold">Estado :</label>
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="" disabled selected>
+              Seleccionar
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="/datosC">Chihuahua</a>
+              <a class="dropdown-item" href="/datosS">Sonora</a>
+              <a class="dropdown-item" href="/datosT">Tabasco</a>
+              <a class="dropdown-item" href="/datosN">Nuevo Leon</a>
+              <a class="dropdown-item" href="/">Todos</a>
+            </div>
+          </div>
+          <br><br>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre de la Tienda</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Telefono</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for tienda in tiendas %}
+                <tr>
+                    <td>{{ tienda.0 }}</td>
+                    <td>{{ tienda.1 }}</td>
+                    <td>{{ tienda.2 }}</td>
+                    <td>{{ tienda.3 }}</td>
+                    <td>{{ tienda.4 }}</td>
+                    <td>{{ tienda.5 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+      </form>
+    </center>
+  </body>
+
+</html>
